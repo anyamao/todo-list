@@ -1,0 +1,192 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family:Arial, Helvetica, sans-serif;
+    border-style:none;
+    margin-top:0px;
+}
+body{
+    background-color:black;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    min-height:100vh;
+    background-repeat: not repeat;
+    background-attachment:fixed;
+    background-position:center;
+    background-size: cover;
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../icons/background-light.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.9;
+    z-index: -1;
+}
+
+.todo-div{
+    margin-top:200px;
+}
+
+.todo-container{
+    min-width:350px;
+    border-radius: 30px;
+    border: solid 2px rgb(255, 255, 255);
+    padding:20px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
+    backdrop-filter:blur(10px);
+}
+.title{
+    font-size:30px;
+    margin-bottom:20px;
+    font-weight:600;
+    
+}
+.input-div{
+    align-items:center;
+    display:flex;
+    background-color:rgb(233, 233, 233);
+    border-radius:20px;
+    padding: 4px 8px;
+    min-height: 43px;
+}
+.input{
+    background-color:rgb(233, 233, 233);
+    border-radius:20px;
+    height:35px;
+    min-width:250px;
+    display:inline-block;
+    padding-left:10px;
+}
+.input:focus{
+    outline:none;
+}
+.add{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:30px;
+    width:30px;
+    background-color:rgb(53, 71, 230);
+    border-radius:30px;
+    transition: all 0.3s;
+    flex-shrink:0;
+}
+.add:hover{
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.308);
+    margin-top:-6px;
+    background-color:rgb(109, 189, 255);
+}
+.add-image{
+    vertical-align:center;
+    height:20px;
+    width:20px;
+
+}
+
+.list-container{
+    flex:1;
+    margin-right:20px;
+    width:280px;
+    margin-top:20px;
+}
+
+.adding{
+    background-color:rgba(255, 255, 255, 0.322);
+    padding:10px;
+    margin-bottom:7px;
+    display:flex;
+    margin-top:5px;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    border-radius:10px;
+    font-size:15px;
+    transition: all 0.3s;
+
+}
+.complete-button{
+    width:15px;
+    height:15px;
+    background-color:none;
+    border-style:none;
+    background-color:rgba(255, 255, 255, 0.541);
+    border-radius:10px;
+    transition: all 0.2s;
+}
+.complete-button:hover{
+    outline: solid 1.5px rgba(0, 128, 0, 0.295);
+    background-color:rgba(0, 128, 0, 0.295);
+}
+
+
+.text-div{
+    background-color:rgba(0, 128, 0, 0);
+    width:60%;
+
+}
+.buttons-container{
+    display:flex;
+    gap:5px;
+}
+
+.delete-image{
+    width:20px;
+    height:20px;
+    margin-top:2px;
+}
+.delete-button{
+    background-color:rgba(65, 65, 65, 0);
+    border-radius: 20px;
+    width:30px;
+    height:30px;
+    margin-left:1px;
+    transition: all 0.2s;
+}
+.delete-button:hover{
+    background-color:rgba(65, 65, 65, 0);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.171);
+    margin-top:-2px;
+}
+
+.pencil-image{
+    width:20px;
+    height:15px;
+    margin-top:2px;
+    margin-right:1px;
+}
+.change-button{
+    margin-left:5px;
+    background-color:rgba(65, 65, 65, 0);
+    border-radius: 20px;
+    width:30px;
+    height:30px;
+    transition: all 0.2s;
+}
+.change-button:hover{
+    background-color:rgba(65, 65, 65, 0);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.171);
+    margin-top:-2px;
+}
+.temporary-input{
+    background-color:rgba(65, 65, 65, 0);
+    width:100%;
+    display:inline-block;
+    color:white;
+}
+.temporary-input:focus{
+    outline:none;
+}
