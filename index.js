@@ -19,19 +19,19 @@ function loadBackground(){
     const savedUrl = localStorage.getItem('activeBackground');
     const backgroundElement = document.querySelector('.background-image');
     
-    const defaultUrl = '../icons/background5.jpg';
+    const defaultUrl = '/icons/background5.jpg';
     const urlToUse = savedUrl || defaultUrl;
     backgroundElement.style.backgroundImage = `url("${urlToUse}")`;
 
-    if (urlToUse === '../icons/background5.jpg') {
+    if (urlToUse === '/icons/background5.jpg') {
         backgroundButtonFirst.style.backgroundColor = 'white';
         backgroundButtonSecond.style.backgroundColor = 'rgba(0, 128, 0, 0)';
         backgroundButtonThird.style.backgroundColor = 'rgba(0, 128, 0, 0)';
-    } else if (urlToUse === '../icons/background3.jpg') {
+    } else if (urlToUse === '/icons/background3.jpg') {
         backgroundButtonSecond.style.backgroundColor = 'white';
         backgroundButtonFirst.style.backgroundColor = 'rgba(0, 128, 0, 0)';
         backgroundButtonThird.style.backgroundColor = 'rgba(0, 128, 0, 0)';
-    } else if (urlToUse === '../icons/background6.jpg') {
+    } else if (urlToUse === '/icons/background6.jpg') {
         backgroundButtonThird.style.backgroundColor = 'white';
         backgroundButtonFirst.style.backgroundColor = 'rgba(0, 128, 0, 0)';
         backgroundButtonSecond.style.backgroundColor = 'rgba(0, 128, 0, 0)';
@@ -270,8 +270,8 @@ const backgroundButtonFirst = document.querySelector('.change-background-button'
 backgroundButtonFirst.addEventListener('click', function(){
 
     const currentBackground = document.querySelector('.background-image');
-    currentBackground.style.backgroundImage = 'url("../icons/background5.jpg")';
-    const url = '../icons/background5.jpg';
+    currentBackground.style.backgroundImage = 'url("/icons/background5.jpg")';
+    const url = '/icons/background5.jpg';
 
     backgroundButtonFirst.style.backgroundColor = 'white';
 
@@ -285,8 +285,8 @@ const backgroundButtonSecond = document.querySelector('.change-second');
 
 backgroundButtonSecond.addEventListener('click',function(){
     const currentBackground = document.querySelector('.background-image');
-    currentBackground.style.backgroundImage = 'url("../icons/background3.jpg")';
-        const url = '../icons/background3.jpg';
+    currentBackground.style.backgroundImage = 'url("/icons/background3.jpg")';
+        const url = '/icons/background3.jpg';
 
     backgroundButtonSecond.style.backgroundColor = 'white';
 
@@ -300,8 +300,8 @@ const backgroundButtonThird = document.querySelector('.change-third');
 
 backgroundButtonThird.addEventListener('click',function(){
     const currentBackground = document.querySelector('.background-image');
-    currentBackground.style.backgroundImage = 'url("../icons/background6.jpg")';
-        const url = '../icons/background6.jpg';
+    currentBackground.style.backgroundImage = 'url("/icons/background6.jpg")';
+        const url = '/icons/background6.jpg';
 
     backgroundButtonThird.style.backgroundColor = 'white';
 
