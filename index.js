@@ -9,6 +9,39 @@ function saveTasks(){
     localStorage.setItem('todos',JSON.stringify(tasks));
 }
 
+function saveBackground(backgroundUrl) {
+    localStorage.setItem('activeBackground', backgroundUrl);
+}
+
+function loadBackground(){
+
+
+    const savedUrl = localStorage.getItem('activeBackground');
+    const backgroundElement = document.querySelector('.background-image');
+    
+    const defaultUrl = '../icons/background5.jpg';
+    const urlToUse = savedUrl || defaultUrl;
+    backgroundElement.style.backgroundImage = `url("${urlToUse}")`;
+
+    if (urlToUse === '../icons/background5.jpg') {
+        backgroundButtonFirst.style.backgroundColor = 'white';
+        backgroundButtonSecond.style.backgroundColor = 'rgba(0, 128, 0, 0)';
+        backgroundButtonThird.style.backgroundColor = 'rgba(0, 128, 0, 0)';
+    } else if (urlToUse === '../icons/background3.jpg') {
+        backgroundButtonSecond.style.backgroundColor = 'white';
+        backgroundButtonFirst.style.backgroundColor = 'rgba(0, 128, 0, 0)';
+        backgroundButtonThird.style.backgroundColor = 'rgba(0, 128, 0, 0)';
+    } else if (urlToUse === '../icons/background6.jpg') {
+        backgroundButtonThird.style.backgroundColor = 'white';
+        backgroundButtonFirst.style.backgroundColor = 'rgba(0, 128, 0, 0)';
+        backgroundButtonSecond.style.backgroundColor = 'rgba(0, 128, 0, 0)';
+    }
+
+}
+
+
+
+
 
 
 function loadTasks(){
@@ -235,29 +268,31 @@ addButton.addEventListener('click', function(){ /* add new task function*/
 const backgroundButtonFirst = document.querySelector('.change-background-button');
 
 backgroundButtonFirst.addEventListener('click', function(){
+
     const currentBackground = document.querySelector('.background-image');
     currentBackground.style.backgroundImage = 'url("../icons/background5.jpg")';
+    const url = '../icons/background5.jpg';
 
     backgroundButtonFirst.style.backgroundColor = 'white';
 
     
     backgroundButtonSecond.style.backgroundColor = 'rgba(0, 128, 0, 0)';
     backgroundButtonThird.style.backgroundColor = 'rgba(0, 128, 0, 0)';
-
-
-
+    saveBackground(url);
 })
 
 const backgroundButtonSecond = document.querySelector('.change-second');
 
 backgroundButtonSecond.addEventListener('click',function(){
     const currentBackground = document.querySelector('.background-image');
-
     currentBackground.style.backgroundImage = 'url("../icons/background3.jpg")';
+        const url = '../icons/background3.jpg';
+
     backgroundButtonSecond.style.backgroundColor = 'white';
 
     backgroundButtonFirst.style.backgroundColor = 'rgba(0, 128, 0, 0)';
     backgroundButtonThird.style.backgroundColor = 'rgba(0, 128, 0, 0)';
+        saveBackground(url);
 })
 
 
@@ -265,13 +300,14 @@ const backgroundButtonThird = document.querySelector('.change-third');
 
 backgroundButtonThird.addEventListener('click',function(){
     const currentBackground = document.querySelector('.background-image');
-
-
     currentBackground.style.backgroundImage = 'url("../icons/background6.jpg")';
+        const url = '../icons/background6.jpg';
+
     backgroundButtonThird.style.backgroundColor = 'white';
 
     backgroundButtonFirst.style.backgroundColor = 'rgba(0, 128, 0, 0)';
     backgroundButtonSecond.style.backgroundColor = 'rgba(0, 128, 0, 0)';
+        saveBackground(url);
 })
 
 
@@ -300,3 +336,4 @@ backgroundButtonThird.addEventListener('click',function(){
 
 
 loadTasks();
+loadBackground();
