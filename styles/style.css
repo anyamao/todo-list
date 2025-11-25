@@ -136,6 +136,8 @@ body::before {
 .text-div{
     background-color:rgba(0, 128, 0, 0);
     width:60%;
+    max-width:400px;
+    overflow-x:auto;
 
 }
 .buttons-container{
@@ -192,8 +194,10 @@ body::before {
 }
 .list-container{
     flex: 1;
+    max-width:400px;
     max-height: 520px;
     overflow-y: auto;
+    overflow-x:auto;
     width: 100%;
     display:flex;
     justify-content:center;
