@@ -1,10 +1,72 @@
-function attachEventListeners(listItem) {
+function saveTasks(){
+    const tasks = [];
+    document.querySelectorAll('.adding').forEach(item =>{
+        tasks.push({
+            text: item.querySelector('.text-div').textContent,
+            completed: item.querySelector('.text-div').style.textDecoration === 'line-through'
+        });
+    });
+    localStorage.setItem('todos',JSON.stringify(tasks));
+}
+
+
+
+function loadTasks(){
+    const savedTasks = localStorage.getItem('todos');
+    if(savedTasks){
+        const tasks = JSON.parse(savedTasks);
+        tasks.forEach(taskData =>{
+            const listItem = document.createElement('li');
+            listItem.className = "adding";
+            listItem.innerHTML = `
+             <button class="complete-button" style = "background-color: ${taskData.completed ? 'green' : 'rgba(255, 255, 255, 0.541)'}"></button>
+            <div class="text-div" style = "text-decoration : ${taskData.completed ? 'line-through' : 'none'};
+                font-style: ${taskData.completed ? 'italic' : 'normal'}">
+                ${taskData.text}
+            </div>
+            <div class="buttons-container">
+                <button class="change-button"><img src="icons/pencil.png" class="pencil-image"></button>
+                <button class="delete-button"><img src="icons/delete2.png" class="delete-image"></button>
+            </div>`;
+            listText.appendChild(listItem);
+            attachEventListeners(listItem);
+        
+        })
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function attachEventListeners(listItem) { // reattaching event listeners when chaing the html
     const deleteButton = listItem.querySelector(".delete-button");
     const changeButton = listItem.querySelector(".change-button");
     const completeButton = listItem.querySelector(".complete-button");
 
     deleteButton.addEventListener('click', function() {
         listItem.remove();
+                            saveTasks();
     });
     
     completeButton.addEventListener('click', function() {
@@ -12,6 +74,7 @@ function attachEventListeners(listItem) {
         textDiv.style.textDecoration = 'line-through';
         textDiv.style.fontStyle = 'italic';
         completeButton.style.backgroundColor = 'green';
+                            saveTasks();
     });
     
     changeButton.addEventListener('click', function() {
@@ -24,7 +87,6 @@ function attachEventListeners(listItem) {
                 <button class="change-button"><img src="icons/pencil.png" class="pencil-image"></button>
                 <button class="delete-button"><img src="icons/delete2.png" class="delete-image"></button>
             </div>`;
-
         const tempInput = listItem.querySelector('.temporary-input');
         tempInput.focus();
 
@@ -40,6 +102,7 @@ function attachEventListeners(listItem) {
                             <button class="delete-button"><img src="icons/delete2.png" class="delete-image"></button>
                         </div>`;
                     attachEventListeners(listItem);
+                                        saveTasks();
                 }
             }
         });
@@ -106,6 +169,7 @@ addButton.addEventListener('click', function(){ /* add new task function*/
         deleteButton.addEventListener('click', function(){
             listItem.remove();
         });
+
         completeButton.addEventListener('click', function(){
             const textDiv = listItem.querySelector('.text-div');
             textDiv.style.textDecoration = 'line-through';
@@ -114,6 +178,7 @@ addButton.addEventListener('click', function(){ /* add new task function*/
             completeButton.style.backgroundColor = 'green';
 
         });
+
         changeButton.addEventListener('click',function(){
             listItem.innerHTML = `
                 <button class = "complete-button"> </button>
@@ -155,7 +220,6 @@ addButton.addEventListener('click', function(){ /* add new task function*/
 
 
 
-
         });
 
 
@@ -163,7 +227,8 @@ addButton.addEventListener('click', function(){ /* add new task function*/
 
     }
     
-
+                    saveTasks();
 });
 
 
+loadTasks();
